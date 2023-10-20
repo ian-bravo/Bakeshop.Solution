@@ -76,7 +76,7 @@ namespace Bakeshop.Controllers
     {
       _db.Treats.Update(treat);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new { id = treat.TreatId });
     }
 
     [Authorize]

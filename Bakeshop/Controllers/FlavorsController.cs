@@ -76,7 +76,7 @@ namespace Bakeshop.Controllers
     {
       _db.Flavors.Update(flavor);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new { id = flavor.FlavorId });
     }
 
     [Authorize]
