@@ -62,5 +62,21 @@ namespace Bakeshop.Controllers
                             .FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
     }
+
+    [Authorize]
+    public ActionResult Edit(int id)
+    {
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
+      return View(thisFlavor);
+    }
+
+    [Authorize]
+    [HttpPost]
+    public ActionResult Edit(Flavor flavor)
+    {
+      _db.Flavors.Update(flavor);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

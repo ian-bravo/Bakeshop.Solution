@@ -32,3 +32,8 @@ else
   }
   </ul>
 }
+
+@if (User.Identity.IsAuthenticated)
+{
+  <p>@Html.ActionLink("Edit flavor", "Edit", new { id = Model.FlavorId })</p>
+}
