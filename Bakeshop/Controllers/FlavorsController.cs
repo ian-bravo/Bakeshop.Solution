@@ -78,5 +78,22 @@ namespace Bakeshop.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    [Authorize]
+    public ActionResult Delete(int id)
+    {
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(re => re.FlavorId == id);
+      return View(thisFlavor);
+    }
+
+    [Authorize]
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirm(Flavor flavor, int id)
+    { 
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(re => re.FlavorId == id);
+      _db.Flavors.Remove(thisFlavor);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
