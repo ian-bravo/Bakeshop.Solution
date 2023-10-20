@@ -35,5 +35,6 @@ else
 
 @if (User.Identity.IsAuthenticated)
 {
-  <p>@Html.ActionLink("Edit treat", "Edit", new { id = Model.TreatId })</p>
+  <p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</p>
+  <p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>
 }

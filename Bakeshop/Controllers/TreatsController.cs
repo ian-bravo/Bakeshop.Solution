@@ -78,5 +78,22 @@ namespace Bakeshop.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    [Authorize]
+    public ActionResult Delete(int id)
+    {
+      Treat thisTreat = _db.Treats.FirstOrDefault(re => re.TreatId == id);
+      return View(thisTreat);
+    }
+
+    [Authorize]
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirm(Treat treat, int id)
+    { 
+      Treat thisTreat = _db.Treats.FirstOrDefault(re => re.TreatId == id);
+      _db.Treats.Remove(thisTreat);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
