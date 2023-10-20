@@ -1,4 +1,4 @@
-namespace ToDoList.Models
+namespace Bakeshop.Models
 {
   public class FlavorTreat
     {       
