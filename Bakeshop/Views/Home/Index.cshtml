@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Bakeshop.Models;
+
+<h2>~Treats~</h2>
+@if (Model["treats"].Length == 0)
+{
+  <p>No treats have been added</p>
+}
+<ul>
+@foreach(Treat treat in Model["treats"])
+{
+  <li>@Html.ActionLink(@treat.Type, "Details", "Treats", new { id = @treat.TreatId })</li>
+}
+</ul>
+
+<h2>~Flavors~</h2>
+@if (Model["flavors"].Length == 0)
+{
+  <p>No flavors have been added</p>
+}
+<ul>
+@foreach(Flavor flavor in Model["flavors"])
+{
+  <li>@Html.ActionLink(@flavor.Type, "Details", "Flavors", new { id = @flavor.FlavorId })</li>
+}
+</ul>
