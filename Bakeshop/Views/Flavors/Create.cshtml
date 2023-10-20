@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Bakeshop.Models.Flavor;
+
+<h2>Add a New Flavor</h2>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Type)
+  @Html.TextBoxFor(model => model.Type)
+  <p>@Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
+  <p>@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+  <br />
+  <input type="submit" value="Add Flavor" class="btn btn-primary" />
+}
