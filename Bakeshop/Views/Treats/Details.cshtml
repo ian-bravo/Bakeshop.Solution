@@ -32,3 +32,8 @@ else
   }
   </ul>
 }
+
+@if (User.Identity.IsAuthenticated)
+{
+  <p>@Html.ActionLink("Edit treat", "Edit", new { id = Model.TreatId })</p>
+}
