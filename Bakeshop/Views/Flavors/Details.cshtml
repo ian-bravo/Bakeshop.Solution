@@ -36,5 +36,6 @@ else
 @if (User.Identity.IsAuthenticated)
 {
   <p>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</p>
-    <p>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</p>
+  <p>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</p>
+  <p>@Html.ActionLink("Add a Treat to this Flavor", "AddTreat", new { id = Model.FlavorId })</p>
 }

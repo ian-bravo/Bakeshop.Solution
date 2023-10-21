@@ -104,6 +104,7 @@ namespace Bakeshop.Controllers
       return View(thisTreat);
     }
 
+    [Authorize]  
     [HttpPost]
     public ActionResult AddFlavor(Treat treat, int flavorId)
     {
