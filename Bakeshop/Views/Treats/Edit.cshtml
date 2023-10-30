@@ -14,9 +14,11 @@
 
     @Html.LabelFor(model => model.Type)
     @Html.EditorFor(model => model.Type)
+    <p>@Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
     @Html.LabelFor(model => model.Description)
     @Html.EditorFor(model => model.Description)
+    <p>@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
     <input type="submit" value="Save" />
 }

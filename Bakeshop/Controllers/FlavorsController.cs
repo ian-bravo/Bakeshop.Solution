@@ -74,9 +74,16 @@ namespace Bakeshop.Controllers
     [HttpPost]
     public ActionResult Edit(Flavor flavor)
     {
+      if (!ModelState.IsValid)
+      {
+        return View(flavor);
+      }
+      else
+      {
       _db.Flavors.Update(flavor);
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = flavor.FlavorId });
+      }
     }
 
     [Authorize]
